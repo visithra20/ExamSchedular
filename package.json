@@ -14,7 +14,6 @@
   "dependencies": {
     "@dash-ui/styles": "^1.0.2",
     "@emotion/react": "^11.10.4",
-    "@material-ui/icons": "^4.11.3",
     "@mui/icons-material": "^5.10.3",
     "@react-hook/hover": "^4.0.0",
     "@syncfusion/ej2": "^20.2.46",
