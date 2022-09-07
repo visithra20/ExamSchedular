@@ -82,7 +82,7 @@ const AllocationPage = (props) => {
             <AllocationPageComp
               isCreateCard={item?.createCard}
               heading={item?.heading}
-              deletePress={() => null}
+            //   deletePress={() => null}
               editPress={() => null}
               branch={item?.branch}
               department={item?.department}
