@@ -1,8 +1,8 @@
 import React from "react";
 import { TextComponent } from "./components";
-import { RiDeleteBin5Line } from "react-icons/Ri";
-import {TiTick} from "react-icons/Ti";
-import {MdEdit} from "react-icons/Md";
+import { RiDeleteBin5Line } from "react-icons/ri";
+import {TiTick} from "react-icons/ti";
+import {MdEdit} from "react-icons/md";
 import { useRouter } from "next/router";
 const ButtonCreate = (props) => {
     const { type, marginTop = 90, marginLeft = 90 } = props;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { AllocationPageComp} from "../src/AllocateComponents"
 import { Check } from "../src/components";
 import {Header,Footer} from "../src/header"
-import { BsFilter } from "react-icons/Bs";
+import { BsFilter } from "react-icons/bs";
 
 const AllocationPage = (props) => {
   const [cardDetails, setCardDetails] = useState([
