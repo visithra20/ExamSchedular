@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { AllocationPageComp} from "../src/AllocateComponents"
 import { Check } from "../src/components";
-
-//import GlobalStyle from "../src/GlobalStyle";
-
 import {Header,Footer} from "../src/header"
 import { BsFilter } from "react-icons/Bs";
 

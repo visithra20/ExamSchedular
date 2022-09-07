@@ -3,11 +3,7 @@ import { TextComponent } from "./components";
 import { RiDeleteBin5Line } from "react-icons/Ri";
 import {TiTick} from "react-icons/Ti";
 import {MdEdit} from "react-icons/Md";
-import styled from "styled-components";
 import { useRouter } from "next/router";
-// import { BsFilter } from "react-icons/Bs";
-
-
 const ButtonCreate = (props) => {
     const { type, marginTop = 90, marginLeft = 90 } = props;
     const Router = useRouter()
