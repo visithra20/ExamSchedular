@@ -14,9 +14,8 @@ import {
 import { Header, Footer } from "../src/header";
 import styled from "styled-components";
 import { Font } from "../src/font";
-import Pop from "./popup";
-// import Popup from 'reactjs-popup';
-// import { PropaneSharp } from "@mui/icons-material";
+import Popup from 'reactjs-popup';
+
 //import { DropDownFormField } from "@syncfusion/ej2/documenteditor";
 
 
@@ -158,7 +157,7 @@ const ExamScheduler = () => {
           </div>
           <div >
             <TextComponent
-              label="Create new schedule"
+              label="Edit schedule"
               styleProps={{
                 marginLeft: "19px",
                 marginTop: "35px",
@@ -463,7 +462,7 @@ const ExamScheduler = () => {
         {" "}
         Save
       </button> */}
-      {/* <Popup style={{width: "908px",
+      <Popup style={{width: "908px",
     height: "293px"}} trigger={<button  style={{
     marginTop: "183px",
     marginLeft: "1250px",
@@ -483,9 +482,8 @@ fontStyle: "normal",
 fontWeight: "700",
 fontSize: "30px",
 lineHeight: "41px",
-color: "#000000",display:"flex",flexDirection:"row"}}>BE EEE SEM3 schedule was successfully created</div>
-  </Popup> */}
-  <Pop/>
+color: "#000000",display:"flex",flexDirection:"row"}}>BE EEE SEM3 schedule was successfully edited</div>
+  </Popup>
 
       <div
         style={{ marginTop: "88.74px", display: "flex", flexDirection: "row" }}

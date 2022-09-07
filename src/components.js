@@ -52,7 +52,7 @@ export const Dropdown = (props) => {
     // </Selected>
   );
 };
-export const TextComponent = ({ label, styleProps, CustomTag = "div" }) => (
+export const TextComponent = ({ label, styleProps, CustomTag = "div" ,onClick}) => (
   <CustomTag style={styleProps}>{label}</CustomTag>
 );
 
@@ -75,71 +75,71 @@ export const Date = () => {
 export const Box = ({ children, ...props }) => {
   return <div {...props}>{children}</div>;
 };
-export const FN = () => {
-  const [isActive, setIsActive] = useState(false);
+// export const FN = () => {
+//   const [isActive, setIsActive] = useState(false);
 
-  const handleClick = () => {
-    setIsActive((current) => !current);
-  };
+//   const handleClick = () => {
+//     setIsActive((current) => !current);
+//   };
 
-  return (
-    <button
-      style={{
-        boxSizing: "border-box",
-        borderRadius: "5px",
-        border: " 1px solid #5375E2",
-        background: "white",
-        backgroundColor: isActive ? "#5375E2" : "white",
+//   return (
+//     <button
+//       style={{
+//         boxSizing: "border-box",
+//         borderRadius: "5px",
+//         border: " 1px solid #5375E2",
+//         background: "white",
+//         backgroundColor: isActive ? "#5375E2" : "white",
 
-        color: isActive ? "white" : "",
-      }}
-    >
-      {" "}
-      <div
-        style={{
-          borderRadius: "5px",
-          padding: "19px",
-        }}
-        // class="btn btn-primary"
-        onClick={handleClick}
-      >
-        <TextComponent label="FN" style={{ padding: "19px" }} />
-      </div>
-    </button>
-  );
-};
-export const AN = () => {
-  const [isActive, setIsActive] = useState(false);
+//         color: isActive ? "white" : "",
+//       }}
+//     >
+//       {" "}
+//       <div
+//         style={{
+//           borderRadius: "5px",
+//           padding: "19px",
+//         }}
+//         // class="btn btn-primary"
+//         onClick={handleClick}
+//       >
+//         <TextComponent label="FN" style={{ padding: "19px" }} />
+//       </div>
+//     </button>
+//   );
+// };
+// export const AN = () => {
+//   const [isActive, setIsActive] = useState(false);
   
-  const handleClick = () => {
-    setIsActive((current) => !current);
-  };
+//   const handleClick = () => {
+//     setIsActive((current) => !current);
+//   };
 
-  return (
-    <button
-      style={{
-        boxSizing: "border-box",
-        borderRadius: "5px",
-        border: " 1px solid #5375E2",
-        borderRadius: "5px",
-        background: "white",
-        backgroundColor: isActive ? "#5375E2" : "white",
-        color: isActive ? "white" : "",
-      }}
-    >
-      <div
-        style={{
-          borderRadius: "5px",
-          padding: "19px",
-        }}
-        // class="btn btn-primary"
-        onClick={handleClick}
-      >
-        AN
-      </div>
-    </button>
-  );
-};
+//   return (
+//     <button
+//       style={{
+//         boxSizing: "border-box",
+//         borderRadius: "5px",
+//         border: " 1px solid #5375E2",
+//         borderRadius: "5px",
+//         background: "white",
+//         backgroundColor: isActive ? "#5375E2" : "white",
+//         color: isActive ? "white" : "",
+//       }}
+//     >
+//       <div
+//         style={{
+//           borderRadius: "5px",
+//           padding: "19px",
+//         }}
+//         // class="btn btn-primary"
+//         onClick={handleClick}
+//       >
+//         AN
+//       </div>
+//     </button>
+//   );
+// };
 export const InputComponent = (props) => {
   return (
     <div
@@ -235,10 +235,10 @@ export const Range2 = () => {
 
 };
 
-export const Check = () => {
+export const Check = (props) => {
   return (
     <div
-      style={{ padding: "24px", marginLeft: "144.41px", marginTop: "-15px" }}
+      style={{ padding: "24px", marginLeft: "144.41px", marginTop: "-15px",...props.style }}
     >
       <input type="checkbox" />
     </div>

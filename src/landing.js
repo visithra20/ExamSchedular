@@ -1,7 +1,8 @@
 import React from "react";
-import { propTypes } from "react-array-input";
+//import { propTypes } from "react-array-input";
 import { TextComponent } from "./components";
 import { Header,Footer } from "./header";
+import { useRouter } from "next/router";
 
 const Person=()=> {
     return (
@@ -12,8 +13,10 @@ const Person=()=> {
       </div>
     );
   }
-  export const Landing=()=>
-{
+  export const Landing=()=>{
+  const Router = useRouter();
+  const Createnewsched=()=>{
+  Router.push("/examsched")}
     return(
       <>
         <Header />
@@ -24,7 +27,8 @@ const Person=()=> {
             letterSpacing: "0.03em",fontWeight: "600",
             fontSize:"16px"}}/> </div>
         <div>
-     <CreateNew/>
+          <div onClick={Createnewsched}>
+     <CreateNew /></div>
     </div>
     <Footer/>
      
