@@ -78,7 +78,7 @@ export const AllocationPageComp = (props) => {
             <div style={styles.rowSpaceBetween}>
               <div style={styles.headingText}>{heading}</div>
               <div style={styles.row}>
-                <MdEdit onClick={editPress} />
+                <MdEdit  />
                 <RiDeleteBin5Line onClick={deletePress} marginLeft={22} />
               </div>
             </div>
