@@ -39,7 +39,7 @@ const Person=()=> {
 }
 export const CreateNew=()=>{
   return(
-      <button style={{background: "#5375E2",borderRadius: "5px",height: "39.96094512939453px",width: "192px",margin:" 30px 624px 245.04px 624px",top: "615px",
+      <button style={{background: "#5375E2",borderRadius: "5px",height: "39.96094512939453px",width: "192px",margin:" 30px 624px 140px 624px",top: "615px",
 }}>
        <TextComponent label="+ Create New" 
     styleProps={{fontFamily: 'Nunito Sans',fontStyle: "normal",fontWeight: "400",fontSize: "20px",lineHeight: "27px",color: "#FFFFFF"}}/>

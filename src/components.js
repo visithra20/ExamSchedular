@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import Select from "react-select";
 import styled from "styled-components";
+
 // import { styleSheet } from "@dash-ui/styles";
 // import Apps from "../pages/filter";
 // import {DropDownListComponent} from '@syncfusion/ej2-react-dropdowns'
@@ -19,12 +20,71 @@ import styled from "styled-components";
 //   }}
 
 // `
+const Block = styled.div`
+.custom-select {
+  position: relative;
+  
+}
+.custom-select select {
+  display: none;
+}
+.select-selected {
+  background-color: white;
+}
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: black transparent transparent transparent;
+}
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent Black transparent;
+  top: 7px;
+}
+.select-items div,.select-selected {
+  color:black;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+.select-items {
+  position: absolute;
+  background-color: white;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+.select-hide {
+  display: none;
+}
 
+.select-items div:hover, .same-as-selected {
+  background-color: blue;
+}
+
+
+    /* background-color: white;
+    
+    
+    border: 1px solid transparent;
+    cursor: pointer;
+    &:hover {
+      background-color: #5375E2;
+    } */
+  `;
 export const Dropdown = (props) => {
   const { data, onChange = () => null } = props;
 
   return (
     //    <Selected >
+<div class="custom-select">
 
     <select
       style={{
@@ -44,18 +104,26 @@ export const Dropdown = (props) => {
       }}
       onChange={onChange}
     >
+   
+              
       {data.map((item) => {
-        return <option value={item.id}>{item?.name || item} </option>;
+        return <option value={item.id}>{item?.name || item}
+         
+         </option>;
+          ;
       })}
-    </select>
+      
+    </select></div>
 
     // </Selected>
   );
 };
-export const TextComponent = ({ label, styleProps, CustomTag = "div" ,onClick}) => (
-  <CustomTag style={styleProps}>{label}</CustomTag>
-);
-
+export const TextComponent = ({
+  label,
+  styleProps,
+  CustomTag = "div",
+  onClick,
+}) => <CustomTag style={styleProps}>{label}</CustomTag>;
 export const Date = () => {
   return (
     <div>
@@ -64,9 +132,11 @@ export const Date = () => {
         style={{
           background: "#FFFFFF",
           border: "1px solid #E5E5E5",
-          width: "260px",
-          height: "56px",
+          width: "184px",
+          height: "23px",
           borderRadius: "4px",
+          padding:"19px 28px 14px 14px",
+          
         }}
       />
     </div>
@@ -110,7 +180,7 @@ export const Box = ({ children, ...props }) => {
 // };
 // export const AN = () => {
 //   const [isActive, setIsActive] = useState(false);
-  
+
 //   const handleClick = () => {
 //     setIsActive((current) => !current);
 //   };
@@ -219,64 +289,113 @@ export const Range1 = () => {
   );
 };
 export const Range2 = () => {
- 
-    const [isOff, setIsOff] = useState(true);
-      
-  return (
-    <button style={{
-      background: "#FFFFFF",
-      border: "1px solid #E8E8E8",
-      width: "68.53px",
-      height: "56px",
-      borderRadius: "5px",
-      
-    }} onClick={() => setIsOff(!isOff)}>{ isOff ? 'AM' : 'PM' }</button>
-  );
+  const [isOff, setIsOff] = useState(true);
 
+  return (
+    <button
+      style={{
+        background: "#FFFFFF",
+        border: "1px solid #E8E8E8",
+        width: "68.53px",
+        height: "56px",
+        borderRadius: "5px",
+      }}
+      onClick={() => setIsOff(!isOff)}
+    >
+      {isOff ? "AM" : "PM"}
+    </button>
+  );
 };
+
+// export const Check = (props) => {
+//   console.log(props.cardDetails);
+//   const [isActive, setIsActive] = useState(false);
+
+//   const handleClick = () => {
+//     setIsActive(!isActive);
+//   };
+//   const { value=false, onClick=()=>null } =props;
+//   return (
+//     <div
+//       style={{
+//         padding: "24px",
+//         marginLeft: "144.41px",
+//         marginTop: "-15px",
+//         ...props.style,
+//       }}
+//     >
+//       <input
+//         type="checkbox"
+//       />
+//     </div>
+//   );
+// };
+// import React from 'react'
+// const CheckBox = (props) => {
+//     const { value = false, onClick = () => null } = props
+//     // console.log({ value })
+//     return (
+//         <div>
+//             <input
+//                 type="checkbox"
+//                 value={value}
+//                 onChange={() => onClick(!value)}
+//             />
+//         </div>
+//     )
+// }
+// export default CheckBox
 
 export const Check = (props) => {
+  const { value = false, onClick = () => null } = props
   return (
     <div
-      style={{ padding: "24px", marginLeft: "144.41px", marginTop: "-15px",...props.style }}
+      style={{
+        padding: "24px",
+        marginLeft: "110.41px",
+        marginTop: "-15px",
+        ...props.style,
+      }}
     >
-      <input type="checkbox" />
+      <input type="checkbox"
+      value={value}
+      onChange={() => onClick(!value)}/>
     </div>
   );
 };
-export const Box1=(props)=>{
-  return(
-    <div style={{display:"flex",flexWrap:"wrap",}}>
-      <box style={{boxSizing: "borderBox",
-marginTop:"79px" ,
-marginLeft:"102px",
-marginRight:"102px",
-marginBottom:"",
-width: "392px",
-height: "252px",
-left:"102px",
-top: "175px",
-background: "transparent",
-border: "1px solid #000000",
-borderRadius: "10px",
-...props.style}}>
-  {/* <box
-  style={{width: "392px",
-height: "55px",
-background: "red",
-  borderRadius: "10px"}}> </box>*/}
-  <Box 
-  style={{marginTop:"196px",width: "392px",
-height: "55px",
-background: "#FFA500",
-  borderRadius: "10px"
-  }}/>
- </box>
-
-
+export const Box1 = (props) => {
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap" }}>
+      <box
+        style={{
+          boxSizing: "borderBox",
+          marginTop: "79px",
+          marginLeft: "102px",
+          marginRight: "102px",
+          marginBottom: "",
+          width: "392px",
+          height: "252px",
+          left: "102px",
+          top: "175px",
+          background: "transparent",
+          border: "1px solid #000000",
+          borderRadius: "10px",
+          ...props.style,
+        }}
+      >
+        <Box
+          style={{
+            marginTop: "196px",
+            width: "392px",
+            height: "55px",
+            background: "#FFA500",
+            borderRadius: "10px",
+          }}
+        />
+      </box>
     </div>
-  )
-}
+  );
+};
 
 // import useHover from "@react-hook/hover";
 // import { styles } from "@dash-ui/styles";

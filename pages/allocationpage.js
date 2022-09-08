@@ -1,19 +1,224 @@
+// import React, { useState } from "react";
+// import { AllocationPageComp } from "../src/AllocateComponents";
+// import { Check } from "../src/components";
+// import { Header, Footer } from "../src/header";
+// import { BsFilter } from "react-icons/bs";
+// import { filter } from "@syncfusion/ej2/maps";
+
+// const AllocationPage = (props) => {
+//   const [cardDetails, setCardDetails] = useState([
+//     {
+//       createCard: true,
+//       completed: true,
+//     },
+//     {
+//       heading: "BE ECE SEM1",
+//       branch: "B.E",
+//       department: "ECE",
+//       semester: "1",
+//       subject: "5",
+//       lab: "2",
+//       ExamType: "Internals",
+//       completed: false,
+//     },
+//     {
+//       heading: "BE EEE SEM 3",
+//       branch: "B.E",
+//       department: "EEE",
+//       semester: "1",
+//       subject: "5",
+//       lab: "2",
+//       ExamType: "Semster",
+//       completed: true,
+//     },
+//     {
+//       heading: "BTech CSE SEM 3",
+//       branch: "BTech",
+//       department: "IT",
+//       semester: "1",
+//       subject: "5",
+//       lab: "2",
+//       ExamType: "Model",
+//       completed: false,
+//     },
+//     {
+//         heading: "BTech CSE SEM 3",
+//         branch: "BTech",
+//         department: "IT",
+//         semester: "1",
+//         subject: "5",
+//         lab: "0",
+//         ExamType: "Model",
+//         completed: true,
+//       },
+//     {
+//       heading: "BTech CSE SEM 3",
+//       branch: "BTech",
+//       department: "IT",
+//       semester: "1",
+//       subject: "5",
+//       lab: "2",
+//       ExamType: "Model",
+//       completed: true,
+//     },
+//   ]);
+//   const [filteredArray,setFilteredArray]= useState(cardDetails);
+
+//   //   const [selectedSub, setSelectedSub] = useState([])
+//   //   const onChangeSelectSubname = (data) => {
+//   //       const selectedVal = data.target.value;
+//   //       setSelectedSub(
+//   //       subname.filter((selectSubname) => selectSubname.id === selectedVal)
+//   //           );}
+
+//   const onDelete = (item, index) => {
+//     const tempCardDetails = [...cardDetails];
+//     tempCardDetails.splice(index, 1);
+//     setCardDetails(tempCardDetails);
+//   };
+//  // const Allocate = (props) => {
+// //     const [showallocated, setShowallocated] = useState([
+// //       {
+// //         createCard: true,
+// //       },
+// //       {
+// //         heading: "BE ECE SEM1",
+// //         branch: "B.E",
+// //         department: "ECE",
+// //         semester: "1",
+// //         subject: "5",
+// //         lab: "2",
+// //         ExamType: "Internals",
+// //         completed: false,
+// //       },
+// //       {
+// //         heading: "BE ECE SEM1",
+// //         branch: "B.E",
+// //         department: "ECE",
+// //         semester: "1",
+// //         subject: "5",
+// //         lab: "2",
+// //         ExamType: "Internals",
+// //         completed: true,
+// //       },
+// //       {
+// //         heading: "BE EEE SEM 3",
+// //         branch: "B.E",
+// //         department: "EEE",
+// //         semester: "1",
+// //         subject: "5",
+// //         lab: "2",
+// //         ExamType: "Semster",
+// //         completed: true,
+// //       },
+// //     ]);
+// //   };
+
+//     // setShowallocated(filtered)
+
+//   return (
+//     <>
+//       <Header />
+//       <div
+//         style={{
+//           marginLeft: "1100px",
+//           display: "flex",
+//           flexDirection: "row",
+//           marginBottom: "-3px",
+//         }}
+//       >
+//         <span
+//           style={{
+//             marginTop: "37px",
+//           }}
+//         >
+//           Show Allocated
+//         </span>
+//         {/* {filtered.map(obj => {
+//         return (<div > </div> );})} */}
+//         <div>
+//           <Check style={{ marginLeft: "-10px", marginTop: "14px" }}
+//           filteredArray={filteredArray}
+//           cardDetails={cardDetails}
+//           setFilteredArray={setCardDetails}
+
+//            />
+//         </div>
+//         <span style={{ marginTop: "37px" }}>Filter</span>
+//         <BsFilter
+//           style={{ color: "#5375E2", marginLeft: "10px", marginTop: "38px" }}
+//         />
+//       </div>
+//       <div
+//         style={{
+//           padding: "0px 120px",
+//           display: "flex",
+//           flexWrap: "wrap",
+//           gap: 20,
+//         }}
+//       >
+//         {cardDetails?.map((item, index) => {
+//           return (
+//             <AllocationPageComp
+//               isCreateCard={item?.createCard}
+//               heading={item?.heading}
+//               editPress={() => null}
+//               branch={item?.branch}
+//               department={item?.department}
+//               semester={item?.semester}
+//               subject={item?.subject}
+//               lab={item?.lab}
+//               ExamType={item?.ExamType}
+//               isCompleted={item?.completed}
+//               marginTop={51}
+//               deletePress={() => onDelete(item, index)}
+//             />
+//           );
+//         })}
+//       </div>
+//       <Footer style={{ marginBottom: "0%" }} />
+//     </>
+//   );
+// };
+// export default AllocationPage;
+
 import React, { useState } from "react";
-import { AllocationPageComp} from "../src/AllocateComponents"
+import { AllocationPageComp } from "../src/AllocateComponents";
 import { Check } from "../src/components";
-import {Header,Footer} from "../src/header"
+import { Header, Footer } from "../src/header";
 import { BsFilter } from "react-icons/bs";
+import styled from "styled-components";
+
+import { useRouter } from "next/router";
 
 const AllocationPage = (props) => {
+  const Router = useRouter();
+  const Fil = () => {
+    Router.push("/");
+  };
+  const [dropDown, setDropDown] = useState(["Semster", "Model", "Internal"]);
+  const [radioFlag, setRadioFlag] = useState(false);
+  const [filterPopup, setFilterPopup] = useState(false);
+
+  const handleExamFilter = (item, index) => {
+    const filterData = cardDetails?.filter(function (i, index) {
+      console.log({ d: i?.ExamType });
+      return i?.ExamType === item;
+    });
+    setFilter(filterData);
+    setFilterPopup(false);
+  };
+
   const [cardDetails, setCardDetails] = useState([
     {
       createCard: true,
+      completed: true,
     },
     {
-      heading: "BE ECE SEM1",
+      heading: "BE IT SEM3",
       branch: "B.E",
-      department: "ECE",
-      semester: "1",
+      department: "I.T",
+      semester: "3",
       subject: "5",
       lab: "2",
       ExamType: "Semster",
@@ -22,31 +227,74 @@ const AllocationPage = (props) => {
     {
       heading: "BE EEE SEM 3",
       branch: "B.E",
-      department: "EEE",
-      semester: "1",
+      department: "I.T",
+      semester: "3",
       subject: "5",
       lab: "2",
       ExamType: "Semster",
       completed: true,
     },
     {
-      heading: "BE ICE SEM 3",
+      heading: "BTECH CIVIL SEM5",
       branch: "B.E",
-      department: "ICE",
-      semester: "1",
+      department: "I.T",
+      semester: "3",
       subject: "5",
-      lab: "0",
+      lab: "2",
       ExamType: "Model",
+      completed: true,
+    },
+    {
+      heading: "BE CSE SEM 3",
+      branch: "B.E",
+      department: "I.T",
+      semester: "3",
+      subject: "5",
+      lab: "2",
+      ExamType: "Internal",
       completed: false,
     },
+    {
+      heading: "BTECH CSBS SEM2",
+      branch: "B.E",
+      department: "I.T",
+      semester: "3",
+      subject: "5",
+      lab: "2",
+      ExamType: "Internal",
+      completed: true,
+    },
   ]);
+
+  const [filter, setFilter] = useState(cardDetails);
   const onDelete = (item, index) => {
-    // create duplicate Value
     const tempCardDetails = [...cardDetails];
     tempCardDetails.splice(index, 1);
     setCardDetails(tempCardDetails);
   };
-  
+
+  const handleFilter = (e) => {
+    setRadioFlag(e);
+    if (e) {
+      const filteredData = cardDetails?.filter((obj) => {
+        return obj.completed === true;
+      });
+      setFilter(filteredData);
+    } else {
+      setFilter(cardDetails);
+    }
+  };
+
+  const Block = styled.div`
+    background-color: white;
+
+    border: 1px solid transparent;
+    cursor: pointer;
+    &:hover {
+      background-color: #5375e2;
+    }
+  `;
+
   return (
     <>
       <Header />
@@ -60,14 +308,73 @@ const AllocationPage = (props) => {
       >
         <span
           style={{
-            marginTop:"37px",
+            marginTop: "37px",
           }}
         >
           Show Allocated
+        </span>{" "}
+      </div>
+      <div
+        style={{
+          marginLeft: "1100px",
+          display: "flex",
+          flexDirection: "row",
+          marginBottom: "-3px",
+        }}
+      >
+        <Check
+          style={{ marginTop: "-11%" }}
+          filter={filter}
+          cardDetails={cardDetails}
+          setCardDetails={setCardDetails}
+          value={radioFlag}
+          setValue={setRadioFlag}
+          onClick={handleFilter}
+        />
+        <span
+          style={{
+            marginRight: "10px",
+            marginLeft: "10px",
+            marginTop: "-18px",
+          }}
+        >
+          Filter
         </span>
-        <Check style={{marginLeft:"-10px",marginTop:"14px"}} />
-        <span style={{  marginTop:"37px", }}>Filter</span>
-         <BsFilter style={{color:"#5375E2",marginLeft:"10px",marginTop:"38px"}}/> 
+        <div style={{ marginTop: "-15px", marginLeft: "3px" }}>
+          <BsFilter onClick={() => setFilterPopup(!filterPopup)} />
+          {filterPopup && (
+            <div
+              style={{
+                width: 400,
+                background: "white",
+                padding: "22px 29px 17px 29px",
+                borderRadius: 6,
+                position: "absolute",
+                right: 4,
+                border: "0.2px solid black",
+              }}
+            >
+              {dropDown?.map((item, index) => {
+                return (
+                  <Block>
+                    <div
+                      style={{
+                        fontWeight: "400",
+                        fontSize: 16,
+                        lineHeight: "22px",
+                        color: "#000000",
+                        marginBottom: dropDown?.length - 1 !== index ? 20 : 0,
+                      }}
+                      onClick={() => handleExamFilter(item, index)}
+                    >
+                      {item} Exam
+                    </div>
+                  </Block>
+                );
+              })}
+            </div>
+          )}
+        </div>
       </div>
       <div
         style={{
@@ -77,13 +384,11 @@ const AllocationPage = (props) => {
           gap: 20,
         }}
       >
-        {cardDetails?.map((item, index) => {
+        {filter?.map((item, index) => {
           return (
             <AllocationPageComp
               isCreateCard={item?.createCard}
               heading={item?.heading}
-            //   deletePress={() => null}
-              editPress={() => null}
               branch={item?.branch}
               department={item?.department}
               semester={item?.semester}
@@ -93,11 +398,20 @@ const AllocationPage = (props) => {
               isCompleted={item?.completed}
               marginTop={51}
               deletePress={() => onDelete(item, index)}
+              editPress={() => (onclick = { Edit })}
             />
           );
         })}
       </div>
-      <Footer />
+      <div
+        style={{
+          padding: "0px 120px",
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 20,
+        }}
+      ></div>
+      <Footer style={{ marginTop: "13.5%" }} />
     </>
   );
 };

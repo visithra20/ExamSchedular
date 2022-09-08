@@ -9,9 +9,7 @@ const  Pop=() => {
         Router.push('/examsched')
     }
     const [isActive, setIsActive] = useState(false);
-    const handleClicks = () => {
-        setIsActive((current) => !current);
-      };
+    
   const handleClick = () => {
     setIsActive((current) => !current);
   };
@@ -46,8 +44,8 @@ const  Pop=() => {
                     height: '293px',
                     backgroundColor: '#F6F6F6',
                     position: ' center',
-                    marginBottom: '30%',
-                    marginRight: '100px',
+                    marginBottom: '300px',
+                    marginRight: '40px',
                     boxShadow:"7px 7px 5px 0px rgba(50, 50, 50, 0.75)",
                    
                 }}
@@ -55,7 +53,7 @@ const  Pop=() => {
                 <span
                     style={{
                         marginLeft: '817px',
-                        marginBottom: "16px"
+                        // marginBottom: "16px"
                     }}
                 >
                     {' '}
@@ -67,7 +65,7 @@ const  Pop=() => {
                 <div>
                     <Button 
                     onClick={New}
-                        style={{
+                        style={{fontFamily: 'Nunito Sans',
                             marginTop: '70px',
                             borderRadius: '5px',
                             border: '1px solid #5375E2',
@@ -75,14 +73,14 @@ const  Pop=() => {
                             marginRight: '30px',
                             height: '40px',
                             width: '185px',
-                            backgroundColor: isActive ? "#5375E2" : "white",
-                            color: isActive ? "white" : "",
+                            backgroundColor:  "#5375E2" ,
+                            color: "white" 
                         }}
                     >
-                        Create New Schedule
+                        Create NewSchedule
                     </Button>
                     <Button
-                        style={{
+                        style={{fontFamily: 'Nunito Sans',
                             marginTop: '70px',
                             borderRadius: '5px',
                             border: '1px solid #5375E2',
@@ -90,8 +88,8 @@ const  Pop=() => {
                             marginRight: '',
                             height: '40px',
                             width: '185px',
-                            backgroundColor: isActive ? "#5375E2" : "white",
-                            color: isActive ? "white" : "",
+                            backgroundColor:  "#5375E2",
+                            color: "white" 
                         }}onClick={handleClick}
                     > 
                         Allocate Schedule

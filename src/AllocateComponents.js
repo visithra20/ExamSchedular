@@ -1,6 +1,6 @@
 import React from "react";
 import { TextComponent } from "./components";
-import { RiDeleteBin5Line } from "react-icons/ri";
+import { RiDeleteBinFill} from "react-icons/ri";
 import {TiTick} from "react-icons/ti";
 import {MdEdit} from "react-icons/md";
 import { useRouter } from "next/router";
@@ -10,7 +10,6 @@ const ButtonCreate = (props) => {
     const New = () => {
         Router.push('/examsched')
     }
-    
     return (
       <div>
         <div>
@@ -78,8 +77,9 @@ export const AllocationPageComp = (props) => {
             <div style={styles.rowSpaceBetween}>
               <div style={styles.headingText}>{heading}</div>
               <div style={styles.row}>
-                <MdEdit  />
-                <RiDeleteBin5Line onClick={deletePress} marginLeft={22} />
+                <div >
+                <MdEdit /></div>
+                <RiDeleteBinFill onClick={deletePress} marginLeft={22} />
               </div>
             </div>
             <div style={styles.createdLabel}>Created on 01/08/2022 11:00AM</div>
@@ -148,7 +148,7 @@ const Button = (props) => {
   return (
     <>
       {isCompleted ? (
-        <TiTick />
+        <TiTick style={{color:"white"}}/>
       ) : (
         <div style={styles.btnStyles} onClick={onClick}>
           <div style={styles.btnText}>{btnLabel}</div>

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import RadioB from "../src/newbox";
+import Radio from "../src/RadioButton";
 import { useRouter } from "next/router";
 import {
   TextComponent,
   Dropdown,
   Box,
   Date,
-  Check,
+  CheckBox,
   Range,
   Range1,
   Range2,
@@ -14,9 +14,9 @@ import {
 import { Header, Footer } from "../src/header";
 import styled from "styled-components";
 import { Font } from "../src/font";
-import Popup from 'reactjs-popup';
 
-//import { DropDownFormField } from "@syncfusion/ej2/documenteditor";
+
+
 
 
 const StyleFont = styled.div`
@@ -83,8 +83,8 @@ const[subname,setSubname]=useState([
         gap: "18px",
         // width: "344px",
         // height: "56px",
-        marginTop:"-55px",
-        marginBottom:"-55px"
+        marginTop:"-10px",
+        marginBottom:"-10px"
       }}
     >
       <Dropdown
@@ -101,7 +101,7 @@ const[subname,setSubname]=useState([
                             height: "56px",
                             WebkitAppearance: "none"}}/>
       <Date />
-      <RadioB style={{marginTop:"36px"}}/>
+      <Radio style={{marginTop:"36px"}}/>
     </div>
   );
 };
@@ -265,7 +265,7 @@ const ExamScheduler = () => {
                 to
               </label>
               <Time />
-              <Check />
+              <CheckBox />
               <label style={{ marginTop: "8px", opacity: "0.5" }}>
                 Set all for FN
               </label>
@@ -277,7 +277,7 @@ const ExamScheduler = () => {
                 to
               </label>
               <Time />
-              <Check />
+              <CheckBox />
               <label style={{ marginTop: "8px", opacity: "0.5" }}>
                 Set all for AN
               </label>
