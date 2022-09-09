@@ -2,14 +2,21 @@ import React from "react";
 import { TextComponent } from "./components";
 import { RiDeleteBinFill} from "react-icons/ri";
 import {TiTick} from "react-icons/ti";
-import {MdEdit} from "react-icons/md";
+//import {MdEdit} from "react-icons/md";
 import { useRouter } from "next/router";
+import { EditRoute } from "./editroute";
 const ButtonCreate = (props) => {
     const { type, marginTop = 90, marginLeft = 90 } = props;
     const Router = useRouter()
+
     const New = () => {
         Router.push('/examsched')
     }
+    const New1 = () => {
+      Router.push('/examsched')
+  }
+ 
+   
     return (
       <div>
         <div>
@@ -78,7 +85,7 @@ export const AllocationPageComp = (props) => {
               <div style={styles.headingText}>{heading}</div>
               <div style={styles.row}>
                 <div >
-                <MdEdit /></div>
+                <EditRoute/></div>
                 <RiDeleteBinFill onClick={deletePress} marginLeft={22} />
               </div>
             </div>

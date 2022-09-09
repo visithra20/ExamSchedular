@@ -6,7 +6,7 @@ import {
   Dropdown,
   Box,
   Date,
-  CheckBox,
+  Check,
   Range,
   Range1,
   Range2,
@@ -14,11 +14,10 @@ import {
 import { Header, Footer } from "../src/header";
 import styled from "styled-components";
 import { Font } from "../src/font";
-
-
-
-
-
+import Pop from "../src/popup";
+// import Popup from 'reactjs-popup';
+// import { PropaneSharp } from "@mui/icons-material";
+//import { DropDownFormField } from "@syncfusion/ej2/documenteditor";
 const StyleFont = styled.div`
   font-family: "Nunito";
   font-style: normal;
@@ -48,7 +47,7 @@ const Time = () => {
 };
 export const Sub = () => {
 const [subject, setSubject] = useState([
- 
+  { name: "--SELECT--", id: "0" },
     {name:"19HSM002",id:"1"},
     {name:"19CTR105",id:"2"},
     {name:"19QSA011",id:"3"},
@@ -63,6 +62,7 @@ const[subname,setSubname]=useState([
     {name:"PLC",id:"5"},
  ])
     const [selectedSub, setSelectedSub] = useState([
+      
        ])
     const onChangeSelectSubname = (data) => {
         const selectedVal = data.target.value;
@@ -88,17 +88,23 @@ const[subname,setSubname]=useState([
       }}
     >
       <Dropdown
-        style={{ width: "186px", height: "56px", boxRadius: "10px" }}
+        style={{ width: "186px", height: "56px", boxRadius: "10px",padding:"19px 21px 14px 16px" }}
         data={subject}
         onChange={onChangeSelectSubname}
       />
       <Dropdown  data={selectedSub} style={{marginLeft:"18px",
+      fontFamily: 'Nunito Sans',
+      fontSize:"normal",
+      color: "#ABA9AE",
+      fontWeight: "400",
+fontSize: "16px",
                             marginRight:"18px",
                             background: "#F2F2F2",
                             border: "1px solid #E8E8EA",
                             borderRadius: "5px",
                             width: "434px",
                             height: "56px",
+                            padding:"17px 36.21px 20px 12.8px",
                             WebkitAppearance: "none"}}/>
       <Date />
       <Radio style={{marginTop:"36px"}}/>
@@ -118,7 +124,8 @@ export const BackButton = (onClick) => {
 
 const ExamScheduler = () => {
   const [branch, setBranch] = useState([
-    { name: "select", id: "0" },
+    { name: "--SELECT--", id: "0" },
+    
     { name: "BE", id: "2" },
     { name: "BTech", id: "1" },
   ]);
@@ -129,9 +136,9 @@ const ExamScheduler = () => {
     { name: "EEE", id: "2" },
     { name: "ECE", id: "2" },
   ]);
-  const [examtype, setExamtype] = useState(["Model Exam", "Internal Exam", "Semester"]);
+  const [examtype, setExamtype] = useState(["Model", "Internal ", "Semester"]);
   const [selectedDept, setSelectedDept] = useState([
-    { name: "select", id: "0" },
+    { name: "--SELECT--", id: "0" },
   ]);
 
   const onChangeSelectBranch = (data) => {
@@ -201,16 +208,23 @@ const ExamScheduler = () => {
             <div>
               <TextComponent label="Branch" />
               <Dropdown data={branch}
+              style={{padding:"20px 24px" ,height:"56px",width:"338px"}}
               onChange={onChangeSelectBranch} />
             </div>
             <div>
               <TextComponent label="Department" />
-              <Dropdown data={selectedDept} />
+              <Dropdown 
+               style={{padding:"20px 24px" ,height:"56px",width:"338px"}}
+               data={selectedDept} 
+             
+            
+/>
             </div>
             <div>
               <TextComponent label="Semester" />
               <input
                 type="text"
+                value="3"
                 style={{
                   boxSizing: "borderBox",
                   display: "flex",
@@ -219,8 +233,9 @@ const ExamScheduler = () => {
                   alignitems: "center",
                   MarginLeft: "51.12px",
                   gap: "8px",
-                  width: "344px",
-                  height: "56px",
+                  padding:"20px 24px",
+                  width: "296px",
+                  height: "16px",
                   background: "#FFFFFF",
                   border: "1px solid #E8E8EA",
                   borderRadius: "5px",
@@ -244,8 +259,7 @@ const ExamScheduler = () => {
                 padding: "8px 16px 8px 16px",
                 gap: "8px",
               }}
-              data={examtype}
-            />
+              data={examtype}/>
           </div>
           <div style={{ marginLeft: "58px" }}>
             <TextComponent
@@ -265,7 +279,7 @@ const ExamScheduler = () => {
                 to
               </label>
               <Time />
-              <CheckBox />
+              <Check />
               <label style={{ marginTop: "8px", opacity: "0.5" }}>
                 Set all for FN
               </label>
@@ -277,7 +291,7 @@ const ExamScheduler = () => {
                 to
               </label>
               <Time />
-              <CheckBox />
+              <Check />
               <label style={{ marginTop: "8px", opacity: "0.5" }}>
                 Set all for AN
               </label>
@@ -300,13 +314,16 @@ const ExamScheduler = () => {
             }}
           >
             <input
+            value="5"
               type="text"
               style={{
+              
                 boxSizing: "borderBox",
                 display: "flex",
                 flexDirection: "row",
-                width: "344px",
-                height: "56px",
+                padding:"20px 24px",
+                height: "16px",
+                width: "296px",
                 background: "#FFFFFF",
                 border: "1px solid #E8E8EA",
                 borderRadius: "5px",
@@ -314,13 +331,14 @@ const ExamScheduler = () => {
             />
             <input
               type="text"
+              value="2"
               style={{
                 boxSizing: "borderBox",
                 display: "flex",
                 flexDirection: "row",
-
-                width: "344px",
-                height: "56px",
+                padding:"20px 24px",
+                height: "16px",
+                width: "296px",
                 background: "#FFFFFF",
                 border: "1px solid #E8E8EA",
                 borderRadius: "5px",
@@ -338,7 +356,7 @@ const ExamScheduler = () => {
               >
                 <TextComponent
                   label="Subject1"
-                  styleProps={{ marginRight: "638px" }}
+                  styleProps={{ marginRight: "635px" }}
                 />
                 <TextComponent label="Date" />
               </div>
@@ -354,7 +372,7 @@ const ExamScheduler = () => {
               >
                 <TextComponent
                   label="Subject2"
-                  styleProps={{ marginRight: "638px" }}
+                  styleProps={{ marginRight: "635px" }}
                 />
                 <TextComponent label="Date" />
               </div>
@@ -370,7 +388,7 @@ const ExamScheduler = () => {
               >
                 <TextComponent
                   label="Subject3"
-                  styleProps={{ marginRight: "638px" }}
+                  styleProps={{ marginRight: "635px" }}
                 />
                 <TextComponent label="Date" />
               </div>
@@ -386,7 +404,7 @@ const ExamScheduler = () => {
               >
                 <TextComponent
                   label="Subject4"
-                  styleProps={{ marginRight: "638px" }}
+                  styleProps={{ marginRight: "635px" }}
                 />
                 <TextComponent label="Date" />
               </div>
@@ -402,7 +420,7 @@ const ExamScheduler = () => {
               >
                 <TextComponent
                   label="Subject5"
-                  styleProps={{ marginRight: "638px" }}
+                  styleProps={{ marginRight: "635px" }}
                 />
                 <TextComponent label="Date" />
               </div>
@@ -462,7 +480,7 @@ const ExamScheduler = () => {
         {" "}
         Save
       </button> */}
-      <Popup style={{width: "908px",
+      {/* <Popup style={{width: "908px",
     height: "293px"}} trigger={<button  style={{
     marginTop: "183px",
     marginLeft: "1250px",
@@ -482,13 +500,14 @@ fontStyle: "normal",
 fontWeight: "700",
 fontSize: "30px",
 lineHeight: "41px",
-color: "#000000",display:"flex",flexDirection:"row"}}>BE EEE SEM3 schedule was successfully edited</div>
-  </Popup>
+color: "#000000",display:"flex",flexDirection:"row"}}>BE EEE SEM3 schedule was successfully created</div>
+  </Popup> */}
+  <Pop/>
 
       <div
         style={{ marginTop: "88.74px", display: "flex", flexDirection: "row" }}
       >
-        <Footer />
+        <Footer style={{marginBottom:"0%"}}/>
       </div>
     </div>
   );

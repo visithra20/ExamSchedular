@@ -184,7 +184,7 @@
 
 import React, { useState } from "react";
 import { AllocationPageComp } from "../src/AllocateComponents";
-import { Check } from "../src/components";
+import { Box, Check } from "../src/components";
 import { Header, Footer } from "../src/header";
 import { BsFilter } from "react-icons/bs";
 import styled from "styled-components";
@@ -215,7 +215,7 @@ const AllocationPage = (props) => {
       completed: true,
     },
     {
-      heading: "BE IT SEM3",
+      heading: "BE ECE SEM3",
       branch: "B.E",
       department: "I.T",
       semester: "3",
@@ -235,9 +235,9 @@ const AllocationPage = (props) => {
       completed: true,
     },
     {
-      heading: "BTECH CIVIL SEM5",
-      branch: "B.E",
-      department: "I.T",
+      heading: "BTECH IT SEM5",
+      branch: "BTECH",
+      department: "IT",
       semester: "3",
       subject: "5",
       lab: "2",
@@ -245,9 +245,9 @@ const AllocationPage = (props) => {
       completed: true,
     },
     {
-      heading: "BE CSE SEM 3",
+      heading: "BE EEE SEM 1",
       branch: "B.E",
-      department: "I.T",
+      department: "EEE",
       semester: "3",
       subject: "5",
       lab: "2",
@@ -255,9 +255,9 @@ const AllocationPage = (props) => {
       completed: false,
     },
     {
-      heading: "BTECH CSBS SEM2",
-      branch: "B.E",
-      department: "I.T",
+      heading: "BTECH IT SEM2",
+      branch: "BTECH",
+      department: "IT",
       semester: "3",
       subject: "5",
       lab: "2",
@@ -268,10 +268,18 @@ const AllocationPage = (props) => {
 
   const [filter, setFilter] = useState(cardDetails);
   const onDelete = (item, index) => {
-    const tempCardDetails = [...cardDetails];
-    tempCardDetails.splice(index, 1);
-    setCardDetails(tempCardDetails);
-  };
+    let tempCardDetails = [...filter]
+    let duplicateArray = [...cardDetails]
+    let findIndex = cardDetails?.findIndex((i) => i.id === item?.id)
+    if (findIndex > -1) {
+        duplicateArray.splice(findIndex, 1)
+        setCardDetails(duplicateArray)
+    }
+    tempCardDetails.splice(index, 1)
+    console.log({tempCardDetails})
+    setFilter(tempCardDetails)
+}
+  
 
   const handleFilter = (e) => {
     setRadioFlag(e);
@@ -287,7 +295,6 @@ const AllocationPage = (props) => {
 
   const Block = styled.div`
     background-color: white;
-
     border: 1px solid transparent;
     cursor: pointer;
     &:hover {
@@ -326,6 +333,7 @@ const AllocationPage = (props) => {
           style={{ marginTop: "-11%" }}
           filter={filter}
           cardDetails={cardDetails}
+         
           setCardDetails={setCardDetails}
           value={radioFlag}
           setValue={setRadioFlag}
@@ -351,11 +359,12 @@ const AllocationPage = (props) => {
                 borderRadius: 6,
                 position: "absolute",
                 right: 4,
-                border: "0.2px solid black",
+                border: "0.01px solid #A9A9A9",
               }}
             >
               {dropDown?.map((item, index) => {
                 return (
+                    <div>
                   <Block>
                     <div
                       style={{
@@ -363,13 +372,14 @@ const AllocationPage = (props) => {
                         fontSize: 16,
                         lineHeight: "22px",
                         color: "#000000",
-                        marginBottom: dropDown?.length - 1 !== index ? 20 : 0,
+                        marginBottom: "20px"
                       }}
                       onClick={() => handleExamFilter(item, index)}
                     >
                       {item} Exam
                     </div>
                   </Block>
+                  </div>
                 );
               })}
             </div>
@@ -384,8 +394,9 @@ const AllocationPage = (props) => {
           gap: 20,
         }}
       >
-        {filter?.map((item, index) => {
+        { filter?.map((item, index)=> {
           return (
+          
             <AllocationPageComp
               isCreateCard={item?.createCard}
               heading={item?.heading}
@@ -403,15 +414,16 @@ const AllocationPage = (props) => {
           );
         })}
       </div>
-      <div
+      {/* <div
         style={{
           padding: "0px 120px",
           display: "flex",
           flexWrap: "wrap",
           gap: 20,
         }}
-      ></div>
-      <Footer style={{ marginTop: "13.5%" }} />
+      ></div> */}
+      <div >
+      <Footer style={{ position:"fixed",marginTop:"20%"}} /></div>
     </>
   );
 };
