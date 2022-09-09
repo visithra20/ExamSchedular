@@ -18,7 +18,7 @@ const  Pop=() => {
         <Popup 
             trigger={
                 <button
-
+                
                     style={{
                         padding: '10px',
                         width: '174px',
@@ -65,6 +65,7 @@ const  Pop=() => {
                 <div>
                     <Button 
                     onClick={New}
+                    
                         style={{fontFamily: 'Nunito Sans',
                             marginTop: '70px',
                             borderRadius: '5px',
@@ -96,6 +97,7 @@ const  Pop=() => {
                     </Button>
                 </div>
             </div>
+            
         </Popup>
     </div>
 

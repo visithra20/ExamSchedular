@@ -55,9 +55,10 @@ const Radio = () => {
   const FnClick = () => {
     setActiveButtonBN(activeButtonFN);
     setActiveButtonFN(!activeButtonFN);
+   
   };
 
-  const anClick = () => {
+  const anClick = (e) => {
     setActiveButtonFN(activeButtonBN);
     setActiveButtonBN(!activeButtonBN);
   };
@@ -73,6 +74,7 @@ const Radio = () => {
     >
       <button
         onClick={FnClick}
+        
         style={{
           boxSizing: "border-box",
           height: "56px",
@@ -82,8 +84,7 @@ const Radio = () => {
           padding: "17px 36px 11px 20px",
           background: `${activeButtonFN === true ? "#5375E2" : "white"}`,
           color: `${activeButtonFN === false ? "#5375E2" : "white"}`,
-        }}
-      > FN
+        }}> FN
       </button>
       <button
         onClick={anClick}

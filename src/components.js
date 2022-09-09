@@ -3,7 +3,6 @@ import React from "react";
 import { useState } from "react";
 import Select from "react-select";
 import styled from "styled-components";
-
 // import { styleSheet } from "@dash-ui/styles";
 // import Apps from "../pages/filter";
 // import {DropDownListComponent} from '@syncfusion/ej2-react-dropdowns'
@@ -100,14 +99,15 @@ export const Dropdown = (props) => {
         background: "#FFFFFF",
         border: "1px solid #E8E8EA",
         borderRadius: "5px",
+       //WebkitAppearance: "none",
         ...props.style,
       }}
       onChange={onChange}
-    >
-   
-              
+      
+    >       
       {data.map((item) => {
-        return <option value={item.id}>{item?.name || item}
+        return <option 
+        value={item.id}>{item?.name || item}
          
          </option>;
           ;
@@ -122,7 +122,6 @@ export const TextComponent = ({
   label,
   styleProps,
   CustomTag = "div",
-  onClick,
 }) => <CustomTag style={styleProps}>{label}</CustomTag>;
 export const Date = () => {
   return (

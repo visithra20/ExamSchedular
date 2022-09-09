@@ -15,6 +15,13 @@ import { Header, Footer } from "../src/header";
 import styled from "styled-components";
 import { Font } from "../src/font";
 import Pop from "../src/popup";
+import {
+  Createdata,
+  CreatedataSub,
+  CreatedataBranch,
+  CreatedataDept,
+  ExamtypeData,
+} from "../src/Formdata";
 // import Popup from 'reactjs-popup';
 // import { PropaneSharp } from "@mui/icons-material";
 //import { DropDownFormField } from "@syncfusion/ej2/documenteditor";
@@ -46,113 +53,100 @@ const Time = () => {
   );
 };
 export const Sub = () => {
-const [subject, setSubject] = useState([
-  { name: "--SELECT--", id: "0" },
-    {name:"19HSM002",id:"1"},
-    {name:"19CTR105",id:"2"},
-    {name:"19QSA011",id:"3"},
-    {name:"19MNS202",id:"4"},
-    {name:"19ASR008",id:"5"},  
-]);
-const[subname,setSubname]=useState([ 
-    {name:"Eelectrical machines",id:"1"},
-    {name:"Product design and development",id:"2"},
-    {name:"control system",id:"3"},
-    {name:"logic distributed control system",id:"4"},
-    {name:"PLC",id:"5"},
- ])
-    const [selectedSub, setSelectedSub] = useState([
-      
-       ])
-    const onChangeSelectSubname = (data) => {
-        const selectedVal = data.target.value;
-        setSelectedSub(
-        subname.filter((selectSubname) => selectSubname.id === selectedVal)
-            );}
-            
+  const [subject, setSubject] = useState(Createdata);
+  const [subname, setSubname] = useState(CreatedataSub);
+  const [selectedSub, setSelectedSub] = useState([]);
+  
+  const onChangeSelectSubname = (data) => {
+    const selectedVal = data.target.value;
+    console.log(selectedVal)
+    console.log(selectedSub)
+    console.log(data.target.value)
+
+    setSelectedSub(
+      subname.filter((selectSubname) => selectSubname.id === selectedVal)
+    );
+   
+  };
+
   return (
-    
     <div
       style={{
         display: "flex",
-        flexDirection: "row",
-        // justifyContent: "center",
-        alignItems: "center",
-        //marginLeft:"55px",
-        // padding: " 8px 16px",
-        gap: "18px",
-        // width: "344px",
-        // height: "56px",
-        marginTop:"-10px",
-        marginBottom:"-10px"
+        flexDirection: "row", 
+        alignItems: "center", 
+        gap: "18px", 
+        marginTop: "-10px",
+        marginBottom: "-10px",
       }}
     >
       <Dropdown
-        style={{ width: "186px", height: "56px", boxRadius: "10px",padding:"19px 21px 14px 16px" }}
+        style={{
+          width: "186px",
+          height: "56px",
+          boxRadius: "10px",
+          padding: "19px 21px 14px 16px",
+        }}
         data={subject}
         onChange={onChangeSelectSubname}
+        
       />
-      <Dropdown  data={selectedSub} style={{marginLeft:"18px",
-      fontFamily: 'Nunito Sans',
-      fontSize:"normal",
-      color: "#ABA9AE",
-      fontWeight: "400",
-fontSize: "16px",
-                            marginRight:"18px",
-                            background: "#F2F2F2",
-                            border: "1px solid #E8E8EA",
-                            borderRadius: "5px",
-                            width: "434px",
-                            height: "56px",
-                            padding:"17px 36.21px 20px 12.8px",
-                            WebkitAppearance: "none"}}/>
+      <Dropdown
+        data={selectedSub}
+        style={{
+          marginLeft: "18px",
+          fontFamily: "Nunito Sans",
+          fontSize: "normal",
+          color: "#ABA9AE",
+          fontWeight: "400",
+          fontSize: "16px",
+          marginRight: "18px",
+          background: "#F2F2F2",
+          border: "1px solid #E8E8EA",
+          borderRadius: "5px",
+          width: "434px",
+          height: "56px",
+          padding: "17px 36.21px 20px 12.8px",
+          WebkitAppearance: "none",
+        }}
+      />
       <Date />
-      <Radio style={{marginTop:"36px"}}/>
+      <Radio style={{ marginTop: "36px" }} />
     </div>
   );
 };
 export const BackButton = (onClick) => {
   return (
-    
-   
     <div style={{ marginTop: "35px", marginLeft: "122px", display: "flex" }}>
-      <img src="https://i.ibb.co/HnM1WDs/Vectorarrow.png"/>
-      
+      <img src="https://i.ibb.co/HnM1WDs/Vectorarrow.png" />
     </div>
   );
 };
 
 const ExamScheduler = () => {
-  const [branch, setBranch] = useState([
-    { name: "--SELECT--", id: "0" },
-    
-    { name: "BE", id: "2" },
-    { name: "BTech", id: "1" },
-  ]);
-  const [dept, setDept] = useState([
-    { name: "IT", id: "1" },
-    { name: "CSE", id: "2" },
-    { name: "MECH", id: "2" },
-    { name: "EEE", id: "2" },
-    { name: "ECE", id: "2" },
-  ]);
-  const [examtype, setExamtype] = useState(["Model", "Internal ", "Semester"]);
+  const [branch, setBranch] = useState(CreatedataBranch);
+  const [dept, setDept] = useState(CreatedataDept);
+  const [examtype, setExamtype] = useState(ExamtypeData);
   const [selectedDept, setSelectedDept] = useState([
     { name: "--SELECT--", id: "0" },
   ]);
-
+  console.log(selectedDept)
   const onChangeSelectBranch = (data) => {
     const selectedValue = data.target.value;
+    console.log(data)
+    console.log(data.target.value)
     setSelectedDept(
       dept.filter((selectDept) => selectDept.id === selectedValue)
+     
     );
   };
   const Router = useRouter();
-  const Back=()=>{
-  Router.push("/")}
- 
+  const Back = () => {
+    Router.push("/");
+  };
+
   return (
-    <div style={{position:"relative",zIndex:"1"}}>
+    <div style={{ position: "relative", zIndex: "1" }}>
       <Font />
       <StyleFont>
         <Header />
@@ -160,9 +154,8 @@ const ExamScheduler = () => {
         <div style={{ display: "flex" }}>
           <div onClick={Back}>
             <BackButton />
-            
           </div>
-          <div >
+          <div>
             <TextComponent
               label="Create new schedule"
               styleProps={{
@@ -175,7 +168,6 @@ const ExamScheduler = () => {
                 fontSize: "24px",
                 lineHeight: "33px",
                 color: "#000000",
-                
               }}
             />
           </div>
@@ -185,7 +177,7 @@ const ExamScheduler = () => {
           style={{
             width: "1196px",
             // height: "1400px",
-            borderRadius:"2px",
+            borderRadius: "2px",
             left: "122px",
             top: "183px",
             background: "#FBFBFB",
@@ -207,18 +199,19 @@ const ExamScheduler = () => {
           >
             <div>
               <TextComponent label="Branch" />
-              <Dropdown data={branch}
-              style={{padding:"20px 24px" ,height:"56px",width:"338px"}}
-              onChange={onChangeSelectBranch} />
+              <Dropdown
+                data={branch}
+                style={{ padding: "20px 24px", height: "56px", width: "338px" }}
+                onChange={onChangeSelectBranch}
+              />
             </div>
             <div>
               <TextComponent label="Department" />
-              <Dropdown 
-               style={{padding:"20px 24px" ,height:"56px",width:"338px"}}
-               data={selectedDept} 
-             
-            
-/>
+              <Dropdown
+                style={{ padding: "20px 24px", height: "56px", width: "338px" }}
+                data={selectedDept}
+                
+              />
             </div>
             <div>
               <TextComponent label="Semester" />
@@ -233,7 +226,7 @@ const ExamScheduler = () => {
                   alignitems: "center",
                   MarginLeft: "51.12px",
                   gap: "8px",
-                  padding:"20px 24px",
+                  padding: "20px 24px",
                   width: "296px",
                   height: "16px",
                   background: "#FFFFFF",
@@ -259,7 +252,8 @@ const ExamScheduler = () => {
                 padding: "8px 16px 8px 16px",
                 gap: "8px",
               }}
-              data={examtype}/>
+              data={examtype}
+            />
           </div>
           <div style={{ marginLeft: "58px" }}>
             <TextComponent
@@ -314,14 +308,13 @@ const ExamScheduler = () => {
             }}
           >
             <input
-            value="5"
+              value="5"
               type="text"
               style={{
-              
                 boxSizing: "borderBox",
                 display: "flex",
                 flexDirection: "row",
-                padding:"20px 24px",
+                padding: "20px 24px",
                 height: "16px",
                 width: "296px",
                 background: "#FFFFFF",
@@ -336,7 +329,7 @@ const ExamScheduler = () => {
                 boxSizing: "borderBox",
                 display: "flex",
                 flexDirection: "row",
-                padding:"20px 24px",
+                padding: "20px 24px",
                 height: "16px",
                 width: "296px",
                 background: "#FFFFFF",
@@ -464,50 +457,20 @@ const ExamScheduler = () => {
         </Box>
       </StyleFont>
       {/* <button
-        style={{
-          marginTop: "183px",
-          marginLeft: "1250px",
-          padding: "9px 44.4px 12.03px 49.85px",
-          fontFamily: "Nunito Sans",
-          fontStyle: "normal",
-          fontWeight: "00",
-          fontSize: "16px",
-          color: "WHITE",
-          background: "#5375E2",
-          borderRadius: "5px",
-        }}
-      >
-        {" "}
-        Save
-      </button> */}
+        style={{marginTop: "183px",marginLeft: "1250px",padding: "9px 44.4px 12.03px 49.85px",fontFamily: "Nunito Sans",fontStyle: "normal",fontWeight: "00",fontSize: "16px",color: "WHITE",background: "#5375E2",borderRadius: "5px",}}
+      >{" "}Save</button> */}
       {/* <Popup style={{width: "908px",
-    height: "293px"}} trigger={<button  style={{
-    marginTop: "183px",
-    marginLeft: "1250px",
-    padding: "9px 44.4px 12.03px 49.85px",
-    fontFamily: "Nunito Sans",
-    fontStyle: "normal",
-    fontWeight: "00",
-    
-    fontSize: "16px",
-    color: "WHITE",
-    background: "#5375E2",
-    borderRadius: "5px",position:"top center"
-  }}> Save</button>}position="top center">
+    height: "293px"}} trigger={<button  style={{marginTop: "183px",marginLeft: "1250px",padding: "9px 44.4px 12.03px 49.85px",fontFamily: "Nunito Sans",fontStyle: "normal",fontWeight: "00",
+    fontSize: "16px",color: "WHITE",background: "#5375E2",borderRadius: "5px",position:"top center"}}> Save</button>}position="top center">
     <div style={{
-fontFamily: 'Nunito Sans',
-fontStyle: "normal",
-fontWeight: "700",
-fontSize: "30px",
-lineHeight: "41px",
-color: "#000000",display:"flex",flexDirection:"row"}}>BE EEE SEM3 schedule was successfully created</div>
+fontFamily: 'Nunito Sans',fontStyle: "normal",fontWeight: "700",fontSize: "30px",lineHeight: "41px",color: "#000000",display:"flex",flexDirection:"row"}}>BE EEE SEM3 schedule was successfully created</div>
   </Popup> */}
-  <Pop/>
+      <Pop />
 
       <div
         style={{ marginTop: "88.74px", display: "flex", flexDirection: "row" }}
       >
-        <Footer style={{marginBottom:"0%"}}/>
+        <Footer style={{ marginBottom: "0%" }} />
       </div>
     </div>
   );

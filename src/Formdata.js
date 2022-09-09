@@ -1,66 +1,30 @@
-const formdata = {
-    branchanddep: [
-      {
-        branch: "B.E",
-        deps: ["ECE", "EEE", "MECH"],
-      },
-      {
-        branch: "B.TECH",
-        deps: ["IT", "CSE"],
-      },
-    ],
-    semester: {
-      EEE: [
-        {
-          exam: "Internals",
-          subjects: {
-            subjectcode: [
-              "19QSA011",
-              "19HSM002",
-              "19ASR008",
-              "19CTR105",
-              "19MNS202",
-            ],
-            subjectname: [
-              "Measurement and Instrumentation",
-              "Electrical Machines",
-              "Power Systems",
-              "Microcontrollers",
-              "Control Systems",
-            ],
-          },
-          labs: {
-            labcode: ["19QSA011", "19HSM002"],
-            labname: ["Measurement and Instrumentation", "Electrical Machines"],
-          },
-        },
-  
-        {
-          exam: "Model",
-          subjects: {
-            subjectcode: [
-              "19QSA011M",
-              "19HSM002M",
-              "19ASR008M",
-              "19CTR105M",
-              "19MNS202M",
-            ],
-            subjectname: [
-              "Measurement and InstrumentationMod",
-              "Electrical MachinesMod",
-              "Power SystemsMod",
-              "MicrocontrollersMod",
-              "Control SystemsMod",
-            ],
-          },
-          labs: {
-            labcode: ["19QSA011M", "19HSM002M"],
-            labname: ["Measurement and InstrumentationM", "Electrical MachinesM"],
-          },
-        },
-      ],
-    },
-  };
-  
-  
-  export default formdata;
+export const Createdata = [{ name: "--SELECT--", id: "0" },
+{name:"19HSM002",id:"1"},
+{name:"19CTR105",id:"2"},
+{name:"19QSA011",id:"3"},
+{name:"19MNS202",id:"4"},
+{name:"19ASR008",id:"5"}] 
+export const CreatedataSub=
+[ 
+  {name:"Electrical machines",id:"1"},
+  {name:"Product design and development",id:"2"},
+  {name:"control system",id:"3"},
+  {name:"logic distributed control system",id:"4"},
+  {name:"PLC",id:"5"},
+]
+export const CreatedataBranch=
+[
+  { name: "--SELECT--", id: "0" },
+  { name: "BE", id: "2" },
+  { name: "BTech", id: "1" },
+]
+export const CreatedataDept=
+[ 
+  { name: "IT", id: "1" },
+  { name: "CSE", id: "2" },
+  { name: "MECH", id: "2" },
+  { name: "EEE", id: "2" },
+  { name: "ECE", id: "2" },
+]
+
+export const ExamtypeData=["Model", "Internal ", "Semester"]
