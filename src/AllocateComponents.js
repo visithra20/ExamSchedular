@@ -12,11 +12,6 @@ const ButtonCreate = (props) => {
     const New = () => {
         Router.push('/examsched')
     }
-    const New1 = () => {
-      Router.push('/examsched')
-  }
- 
-   
     return (
       <div>
         <div>

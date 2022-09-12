@@ -103,12 +103,10 @@ export const Dropdown = (props) => {
         ...props.style,
       }}
       onChange={onChange}
-      
     >       
       {data.map((item) => {
         return <option 
         value={item.id}>{item?.name || item}
-         
          </option>;
           ;
       })}

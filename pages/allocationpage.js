@@ -191,13 +191,10 @@ import styled from "styled-components";
 
 //import { useRouter } from "next/router";
 import formdata from "../src/DataForm";
-
 const AllocationPage = (props) => {
-  
   const [dropDown, setDropDown] = useState(["Semster", "Model", "Internal"]);
   const [radioFlag, setRadioFlag] = useState(false);
   const [filterPopup, setFilterPopup] = useState(false);
-
   const handleExamFilter = (item, index) => {
     const filterData = cardDetails?.filter(function (i, index) {
       console.log({ d: i?.ExamType });
@@ -206,12 +203,8 @@ const AllocationPage = (props) => {
     setFilter(filterData);
     setFilterPopup(false);
   };
-
   const [cardDetails, setCardDetails] = useState(formdata);
-
   const [filter, setFilter] = useState(cardDetails);
- 
-
   const handleFilter = (e) => {
     setRadioFlag(e);
     if (e) {
@@ -223,7 +216,6 @@ const AllocationPage = (props) => {
       setFilter(cardDetails);
     }
   };
-  
   const Block = styled.div`
     background-color: white;
     border: 1px solid transparent;
@@ -248,7 +240,7 @@ const AllocationPage = (props) => {
 
   return (
     <>
-      <Header />
+     
       <div
         style={{
           marginLeft: "1100px",
@@ -335,8 +327,7 @@ const AllocationPage = (props) => {
           display: "flex",
           flexWrap: "wrap",
           gap: 20,
-        }}
-      >
+        }}>
         {filter?.map((item, index) => {
           return (
             <AllocationPageComp
@@ -365,7 +356,6 @@ const AllocationPage = (props) => {
         }}
       ></div> */}{" "}
       <div style={{ position: "fixed", marginTop: "20%" }}>
-        <Footer />
       </div>
     </>
   );

@@ -19,7 +19,7 @@ const Person=()=> {
   Router.push("/examsched")}
     return(
       <>
-        <Header />
+       
         <Person /><div style={{textAlign:"center"}}>
         <TextComponent 
         label="There are no schedules get started by creating schedules"
@@ -30,8 +30,7 @@ const Person=()=> {
           <div onClick={Createnewsched}>
      <CreateNew /></div>
     </div>
-    <Footer/>
-     
+
        </>
        
     )

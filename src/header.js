@@ -126,12 +126,12 @@ export const Header=()=>
 export const Footer=(props)=>
 {
     return(
-       <>
+
        <div style={{marginTop:""}}>
 <FootStyle style={{margin:"0%",...props.style}} >
     <TextComponent label="Conditions of use & sale" styleProps={{marginLeft:"317px"}} />
     <TextComponent label="Privacy notice" styleProps={{marginLeft:"231px"}}/>
     <TextComponent label="Powdered By Incresco" styleProps={{marginLeft:"201px"}}/>
-</FootStyle></div></>
+</FootStyle></div>
 )
     }

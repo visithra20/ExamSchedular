@@ -1,0 +1,26 @@
+[
+    {
+        "id":"1",
+        "branch":"B.E",
+        "deg":"EEE"
+
+
+    },
+    {
+        "id":"2",
+        "branch":"BTECH",
+        "deg":"EIE"
+
+    },
+    {
+        "id":"3",
+        "branch":"MTECH",
+        "deg":"EEE"
+
+    }, {
+        "id":"4",
+        "branch":"ME",
+        "deg":"ECE"
+
+    }
+]

@@ -11,7 +11,7 @@ import {
   Range1,
   Range2,
 } from "../src/components";
-import { Header, Footer } from "../src/header";
+//import { Header, Footer } from "../src/header";
 import styled from "styled-components";
 import { Font } from "../src/font";
 import Pop from "../src/popup";
@@ -56,26 +56,25 @@ export const Sub = () => {
   const [subject, setSubject] = useState(Createdata);
   const [subname, setSubname] = useState(CreatedataSub);
   const [selectedSub, setSelectedSub] = useState([]);
-  
+
   const onChangeSelectSubname = (data) => {
     const selectedVal = data.target.value;
-    console.log(selectedVal)
-    console.log(selectedSub)
-    console.log(data.target.value)
+    console.log(selectedVal);
+    console.log(selectedSub);
+    console.log(data.target.value);
 
     setSelectedSub(
       subname.filter((selectSubname) => selectSubname.id === selectedVal)
     );
-   
   };
 
   return (
     <div
       style={{
         display: "flex",
-        flexDirection: "row", 
-        alignItems: "center", 
-        gap: "18px", 
+        flexDirection: "row",
+        alignItems: "center",
+        gap: "18px",
         marginTop: "-10px",
         marginBottom: "-10px",
       }}
@@ -89,7 +88,6 @@ export const Sub = () => {
         }}
         data={subject}
         onChange={onChangeSelectSubname}
-        
       />
       <Dropdown
         data={selectedSub}
@@ -122,7 +120,6 @@ export const BackButton = (onClick) => {
     </div>
   );
 };
-
 const ExamScheduler = () => {
   const [branch, setBranch] = useState(CreatedataBranch);
   const [dept, setDept] = useState(CreatedataDept);
@@ -130,27 +127,23 @@ const ExamScheduler = () => {
   const [selectedDept, setSelectedDept] = useState([
     { name: "--SELECT--", id: "0" },
   ]);
-  console.log(selectedDept)
+  console.log(selectedDept);
   const onChangeSelectBranch = (data) => {
     const selectedValue = data.target.value;
-    console.log(data)
-    console.log(data.target.value)
+    console.log(data);
+    console.log(data.target.value);
     setSelectedDept(
       dept.filter((selectDept) => selectDept.id === selectedValue)
-     
     );
   };
   const Router = useRouter();
   const Back = () => {
     Router.push("/");
   };
-
   return (
     <div style={{ position: "relative", zIndex: "1" }}>
       <Font />
       <StyleFont>
-        <Header />
-
         <div style={{ display: "flex" }}>
           <div onClick={Back}>
             <BackButton />
@@ -172,7 +165,6 @@ const ExamScheduler = () => {
             />
           </div>
         </div>
-
         <Box
           style={{
             width: "1196px",
@@ -210,7 +202,6 @@ const ExamScheduler = () => {
               <Dropdown
                 style={{ padding: "20px 24px", height: "56px", width: "338px" }}
                 data={selectedDept}
-                
               />
             </div>
             <div>
@@ -456,22 +447,14 @@ const ExamScheduler = () => {
           </div>
         </Box>
       </StyleFont>
-      {/* <button
-        style={{marginTop: "183px",marginLeft: "1250px",padding: "9px 44.4px 12.03px 49.85px",fontFamily: "Nunito Sans",fontStyle: "normal",fontWeight: "00",fontSize: "16px",color: "WHITE",background: "#5375E2",borderRadius: "5px",}}
-      >{" "}Save</button> */}
-      {/* <Popup style={{width: "908px",
-    height: "293px"}} trigger={<button  style={{marginTop: "183px",marginLeft: "1250px",padding: "9px 44.4px 12.03px 49.85px",fontFamily: "Nunito Sans",fontStyle: "normal",fontWeight: "00",
-    fontSize: "16px",color: "WHITE",background: "#5375E2",borderRadius: "5px",position:"top center"}}> Save</button>}position="top center">
-    <div style={{
-fontFamily: 'Nunito Sans',fontStyle: "normal",fontWeight: "700",fontSize: "30px",lineHeight: "41px",color: "#000000",display:"flex",flexDirection:"row"}}>BE EEE SEM3 schedule was successfully created</div>
-  </Popup> */}
+      {/* <button style={{marginTop: "183px",marginLeft: "1250px",padding: "9px 44.4px 12.03px 49.85px",fontFamily: "Nunito Sans",fontStyle: "normal",fontWeight: "00",fontSize: "16px",color: "WHITE",background: "#5375E2",borderRadius: "5px",}}
+>{" "}Save</button> */}
+      {/* <Popup style={{width: "908px",height: "293px"}} trigger={<button  style={{marginTop: "183px",marginLeft: "1250px",padding: "9px 44.4px 12.03px 49.85px",fontFamily: "Nunito Sans",fontStyle: "normal",fontWeight: "00",fontSize: "16px",color: "WHITE",background: "#5375E2",borderRadius: "5px",position:"top center"}}> Save</button>}position="top center"><div style={{fontFamily: 'Nunito Sans',fontStyle: "normal",fontWeight: "700",fontSize: "30px",lineHeight: "41px",color: "#000000",display:"flex",flexDirection:"row"}}>BE EEE SEM3 schedule was successfully created</div></Popup> */}
       <Pop />
 
       <div
         style={{ marginTop: "88.74px", display: "flex", flexDirection: "row" }}
-      >
-        <Footer style={{ marginBottom: "0%" }} />
-      </div>
+      ></div>
     </div>
   );
 };

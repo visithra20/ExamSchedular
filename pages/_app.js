@@ -1,9 +1,10 @@
 import React from "react";
 import Head from "next/head";
-import GlobalStyle from "../src/globalstyle";
+import {Header,Footer} from "../src/header"
+
 function MyApp({ Component, pageProps }) {
   return(<>
-    <GlobalStyle />
+    
     <Head>
       <meta
         name="viewport"
@@ -11,7 +12,9 @@ function MyApp({ Component, pageProps }) {
       />
     </Head>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&display=swap" rel="stylesheet"></link>
+   <Header/>
     <Component {...pageProps} />
+    <Footer/>
   </>)
   
 }
